@@ -21,6 +21,34 @@ const NewCustomer = () => {
     console.log(values);
   };
 
+  const validationSchema = yup.object({
+    name: yup
+      .string()
+      .required("Name is required")
+      .min(3, "name must be more than 3 character"),
+    email: yup
+      .string()
+      .email("email format is incorrect")
+      .required("Email is required"),
+    password: yup
+      .string()
+      .min(8, "password at least must be 8 character")
+      .required("password is required")
+      .matches(
+        /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/,
+        "Password is weak"
+      ),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "confirm password is not match"),
+    gender: yup.string().required("gender is required"),
+    city: yup.string().required("select city is required"),
+    terms: yup
+      .boolean()
+      .required("Must Accept Terms and Conditions")
+      .oneOf([true], "Must Accept Terms and Conditions"),
+  });
+
   const formik = useFormik({
     initialValues,
     onSubmit,
