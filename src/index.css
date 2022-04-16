@@ -8,12 +8,16 @@
 }
 
 body {
+  width: 100%;
   min-height: 100vh;
   background-image: linear-gradient(to bottom right, #726fdf, #31c6da);
+}
+
+#root {
+  padding: 30px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 30px;
+  width: 100%;
 }
 
 .layout header {
@@ -318,6 +322,7 @@ body {
   justify-content: space-between;
   color: #8d9aa6;
   margin-top: 20px;
+  user-select: none;
 }
 
 .customers .singleCustomer:first-child {
@@ -337,4 +342,90 @@ body {
 .customers .singleCustomer > div .icon {
   font-size: 20px;
   margin: 3px 5px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .layout {
+    width: 100%;
+  }
+  .layout main {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  #root {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.55rem !important;
+  }
+
+  p,
+  li,
+  a,
+  label,
+  button,
+  select {
+    font-size: 0.8rem !important;
+  }
+
+  .layout main {
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .layout header {
+    justify-content: space-between;
+  }
+
+  .layout header a {
+    width: 47%;
+    margin: 0;
+  }
+
+  .new_Customer form .pass_box {
+    margin: 0;
+  }
+
+  .new_Customer form .pass_box {
+    flex-direction: column;
+  }
+
+  .new_Customer form .pass_box .formControl {
+    width: 100%;
+  }
+
+  .new_Customer form {
+    margin-top: 10px;
+  }
+
+  .new_Customer form .formControl label,
+  .new_Customer form .formControl,
+  .new_Customer form .formControl select,
+  .new_Customer form .formControl.radio,
+  .new_Customer form .formControl.check,
+  .new_Customer form .pass_box .formControl {
+    margin-top: 7px !important;
+  }
+
+  .new_Customer form .formControl.check input {
+    margin: 9px 5px 0 0;
+  }
+
+  .new_Customer form .formControl.radio input {
+    margin: 6px 2px 0 25px;
+  }
+
+  .new_Customer form .formControl input[type="text"],
+  .new_Customer form .formControl input[type="email"],
+  .new_Customer form .formControl input[type="password"] {
+    padding: 3px;
+  }
+
+  .new_Customer form .formControl select {
+    padding: 8px;
+  }
 }
