@@ -1,9 +1,9 @@
 import { useFormik } from "formik";
 import { useRef } from "react";
 import * as yup from "yup";
-import Input from "../Common/Input";
+import Input from "./Common/Input";
 
-const NewCustomer = () => {
+const NewCustomer = (props) => {
   const passwordInputRef = useRef();
   const confirmPasswordInputRef = useRef();
 
@@ -18,7 +18,8 @@ const NewCustomer = () => {
   };
 
   const onSubmit = (values) => {
-    console.log(values);
+    props.addCustomerHandler(values);
+    props.history.push("/customers");
   };
 
   const validationSchema = yup.object({

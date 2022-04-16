@@ -69,7 +69,8 @@ body {
 }
 
 /* new_Customer */
-.new_Customer h1 {
+.new_Customer h1,
+.customers h1 {
   color: #fff;
   font-weight: lighter;
   user-select: none;
@@ -301,4 +302,39 @@ body {
   color: #8d9aa6;
   cursor: not-allowed;
   box-shadow: unset;
+}
+
+/* customers */
+.customers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.customers .singleCustomer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #8d9aa6;
+  margin-top: 20px;
+}
+
+.customers .singleCustomer:first-child {
+  margin-top: 400px !important;
+}
+
+.customers .singleCustomer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customers .singleCustomer > div h2 {
+  font-weight: 500;
+}
+
+.customers .singleCustomer > div .icon {
+  font-size: 20px;
+  margin: 3px 5px 0 0;
 }
