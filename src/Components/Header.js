@@ -12,7 +12,11 @@ const Header = () => {
         <div></div>
         <span>New Customer</span>
       </NavLink>
-      <NavLink activeClassName="activePage" to="/users" className="customers">
+      <NavLink
+        activeClassName="activePage"
+        to="/customers"
+        className="customers"
+      >
         <div></div>
         <span>Customers</span>
       </NavLink>
