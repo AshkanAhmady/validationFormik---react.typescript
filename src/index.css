@@ -344,6 +344,13 @@ body {
   margin: 3px 5px 0 0;
 }
 
+.customers p.empty_list {
+  width: 100%;
+  margin-top: 20px;
+  color: red;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 850px) {
   .layout {
