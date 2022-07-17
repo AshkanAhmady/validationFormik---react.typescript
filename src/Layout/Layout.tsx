@@ -1,6 +1,6 @@
 import Header from "../Components/Header";
 
-const Layout = ({ children }) => {
+const Layout:React.FC<any> = ({ children }) => {
   return (
     <div className="layout">
       <Header />

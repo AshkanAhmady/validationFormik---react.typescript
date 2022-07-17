@@ -1,13 +1,14 @@
 import { useFormik } from "formik";
 import { useRef } from "react";
 import * as yup from "yup";
+import { Customer, NewCustomerComponentProps } from "../Interfaces";
 import Input from "./Common/Input";
 
-const NewCustomer = (props) => {
-  const passwordInputRef = useRef();
-  const confirmPasswordInputRef = useRef();
+const NewCustomer: React.FC<NewCustomerComponentProps> = (props) => {
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
 
-  const initialValues = {
+  const initialValues: Customer = {
     name: "",
     email: "",
     password: "",
@@ -17,7 +18,7 @@ const NewCustomer = (props) => {
     terms: false,
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = (values: Customer) => {
     props.addCustomerHandler(values);
     props.history.push("/customers");
   };
@@ -88,7 +89,7 @@ const NewCustomer = (props) => {
             type="radio"
             name="gender"
             id="male"
-            checked={formik.values.gender == "male"}
+            checked={formik.values.gender === "male"}
           />
           <label htmlFor="male">Male</label>
           <input
@@ -97,7 +98,7 @@ const NewCustomer = (props) => {
             type="radio"
             name="gender"
             id="female"
-            checked={formik.values.gender == "female"}
+            checked={formik.values.gender === "female"}
           />
           <label htmlFor="female">Female</label>
           {formik.errors.gender && formik.touched.gender && (
@@ -121,7 +122,7 @@ const NewCustomer = (props) => {
             type="checkbox"
             id="terms"
             name="terms"
-            value={true}
+            // value={true}
             onChange={formik.handleChange}
             checked={formik.values.terms}
           />

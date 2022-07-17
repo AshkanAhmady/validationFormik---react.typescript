@@ -1,13 +1,14 @@
 import { FaUserAlt } from "react-icons/fa";
+import { CustomersComponentProps } from "../Interfaces";
 
-const Customers = (props) => {
+const Customers: React.FC<CustomersComponentProps> = ({customers}) => {
   return (
     <div className="customers">
       <h1>Customers List</h1>
-      {props.customers.length == 0 ? (
+      {customers.length === 0 ? (
         <p className="empty_list">No customers registered</p>
       ) : (
-        props.customers.map((item) => (
+        customers.map((item) => (
           <div className="singleCustomer" key={item.id}>
             <div>
               <FaUserAlt className="icon" />

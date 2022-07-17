@@ -3,14 +3,14 @@ import { Route } from "react-router-dom";
 import Customers from "./Components/Customers";
 import NewCustomer from "./Components/NewCustomer";
 import Layout from "./Layout/Layout";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
+import { Customer } from "./Interfaces";
 
 function App() {
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState<Customer[]>([]);
 
-  const addCustomerHandler = (customer) => {
+  const addCustomerHandler = (customer: Customer) => {
     setCustomers([...customers, { ...customer, id: Date.now() }]);
     toast.success("Customer Added");
   };

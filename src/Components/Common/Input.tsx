@@ -1,20 +1,21 @@
 import { useRef } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { InputComponentProps } from "../../Interfaces";
 
-const Input = ({ label, name, formik, type = "text", inputRef }) => {
-  const showHideBtn = useRef();
+const Input: React.FC<InputComponentProps> = ({ label, name, formik, type = "text", inputRef }) => {
+  const showHideBtn = useRef<HTMLSpanElement>(null);
 
   //   Show Hide Btn
   if (showHideBtn.current) {
-    showHideBtn.current.children[0].addEventListener("click", function () {
+    showHideBtn.current.children[0].addEventListener("click", function (this: HTMLSpanElement) {
       this.classList.add("hide");
-      showHideBtn.current.children[1].classList.remove("hide");
-      inputRef.current.type = "text";
+      showHideBtn.current?.children[1].classList.remove("hide");
+      inputRef!.current!.type = "text";
     });
-    showHideBtn.current.children[1].addEventListener("click", function () {
+    showHideBtn.current.children[1].addEventListener("click", function (this: HTMLSpanElement) {
       this.classList.add("hide");
-      showHideBtn.current.children[0].classList.remove("hide");
-      inputRef.current.type = "password";
+      showHideBtn.current?.children[0].classList.remove("hide");
+      inputRef!.current!.type = "password";
     });
   }
 
@@ -29,7 +30,7 @@ const Input = ({ label, name, formik, type = "text", inputRef }) => {
           id={name}
           ref={inputRef ? inputRef : undefined}
         />
-        {type == "password" && (
+        {type === "password" && (
           <span ref={showHideBtn}>
             <FaEyeSlash className={`icon`} />
             <FaEye className={`icon hide`} />
